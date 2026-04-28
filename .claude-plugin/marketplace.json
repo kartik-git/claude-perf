@@ -1,0 +1,40 @@
+{
+  "name": "claude-perf",
+  "owner": {
+    "name": "Kartik Mathur",
+    "email": "kartikmathur@microsoft.com",
+    "url": "https://github.com/kartik-git"
+  },
+  "description": "Web performance engineering skill for Claude Code — Core Web Vitals diagnosis, bundle analysis, rendering pipeline audits, CDN strategy, real-user monitoring, and CI budget enforcement.",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "perf",
+      "source": "./",
+      "description": "Master /perf command with 13 sub-skills (cwv, bundle, render, images, fonts, network, caching, third-party, ssr, mobile, accessibility, plan, monitor) and 7 parallel subagents that fan out for full audits.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Kartik Mathur",
+        "email": "kartikmathur@microsoft.com",
+        "url": "https://github.com/kartik-git"
+      },
+      "homepage": "https://github.com/kartik-git/claude-perf",
+      "repository": "https://github.com/kartik-git/claude-perf",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "performance",
+        "core-web-vitals",
+        "lcp",
+        "inp",
+        "cls",
+        "bundle-analysis",
+        "lighthouse",
+        "rum",
+        "web-performance",
+        "cwv"
+      ],
+      "skills": "./skills"
+    }
+  ]
+}
