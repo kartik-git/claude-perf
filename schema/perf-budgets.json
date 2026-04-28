@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/your-org/claude-perf/schema/perf-budgets.json",
+  "title": "claude-perf budget templates",
+  "description": "Per-site-type performance budgets used by /perf budget create and /perf budget check.",
+  "version": "0.1.0",
+  "metric_units": {
+    "lcp_ms": "milliseconds",
+    "inp_ms": "milliseconds",
+    "cls": "unitless",
+    "ttfb_ms": "milliseconds",
+    "fcp_ms": "milliseconds",
+    "tbt_ms": "milliseconds",
+    "total_js_kb": "kilobytes (Brotli, first load)",
+    "total_css_kb": "kilobytes (Brotli, first load)",
+    "total_image_kb": "kilobytes (compressed, above-the-fold)",
+    "total_font_kb": "kilobytes (WOFF2)",
+    "total_transfer_kb": "kilobytes (compressed, full page first load)",
+    "third_party_kb": "kilobytes (compressed, all third-party)",
+    "third_party_tbt_ms": "milliseconds"
+  },
+  "templates": {
+    "ecommerce": {
+      "description": "PDP / PLP / cart / checkout — conversion-sensitive. Tight LCP and INP.",
+      "core_web_vitals": {
+        "lcp_ms": 2500,
+        "inp_ms": 200,
+        "cls": 0.1
+      },
+      "supporting": {
+        "ttfb_ms": 600,
+        "fcp_ms": 1800,
+        "tbt_ms": 200
+      },
+      "payload": {
+        "total_js_kb": 300,
+        "total_css_kb": 50,
+        "total_image_kb": 500,
+        "total_font_kb": 100,
+        "total_transfer_kb": 1000
+      },
+      "third_party": {
+        "third_party_kb": 200,
+        "third_party_tbt_ms": 150
+      },
+      "notes": [
+        "Hero/PDP image must be preloaded with fetchpriority=high.",
+        "Defer all analytics / chat / session-replay below the LCP image.",
+        "Cart and checkout pages are stricter (LCP 2.0s, INP 150ms) — override per-route."
+      ]
+    },
+    "saas_dashboard": {
+      "description": "Authenticated app behind a login. INP-driven; payload is allowed larger.",
+      "core_web_vitals": {
+        "lcp_ms": 3000,
+        "inp_ms": 200,
+        "cls": 0.1
+      },
+      "supporting": {
+        "ttfb_ms": 800,
+        "fcp_ms": 2200,
+        "tbt_ms": 300
+      },
+      "payload": {
+        "total_js_kb": 500,
+        "total_css_kb": 80,
+        "total_image_kb": 200,
+        "total_font_kb": 80,
+        "total_transfer_kb": 1200
+      },
+      "third_party": {
+        "third_party_kb": 100,
+        "third_party_tbt_ms": 100
+      },
+      "notes": [
+        "Marketing site should adopt the 'blog' or 'docs' budget instead.",
+        "Heavy charting/grid libs go behind code-split routes.",
+        "Session replay should be sampled."
+      ]
+    },
+    "media_article": {
+      "description": "Editorial / publisher article pages. Ad-heavy but still must pass CWV.",
+      "core_web_vitals": {
+        "lcp_ms": 2500,
+        "inp_ms": 200,
+        "cls": 0.1
+      },
+      "supporting": {
+        "ttfb_ms": 600,
+        "fcp_ms": 1800,
+        "tbt_ms": 250
+      },
+      "payload": {
+        "total_js_kb": 350,
+        "total_css_kb": 60,
+        "total_image_kb": 600,
+        "total_font_kb": 100,
+        "total_transfer_kb": 1300
+      },
+      "third_party": {
+        "third_party_kb": 350,
+        "third_party_tbt_ms": 250
+      },
+      "notes": [
+        "Reserve ad-slot space with min-height to prevent CLS.",
+        "Embeds (YouTube, Twitter) must use facades.",
+        "Comments load on scroll-into-view."
+      ]
+    },
+    "docs_site": {
+      "description": "Static documentation. SSG'd, edge-cached, fast TTFB across the board.",
+      "core_web_vitals": {
+        "lcp_ms": 2000,
+        "inp_ms": 150,
+        "cls": 0.05
+      },
+      "supporting": {
+        "ttfb_ms": 200,
+        "fcp_ms": 1200,
+        "tbt_ms": 100
+      },
+      "payload": {
+        "total_js_kb": 150,
+        "total_css_kb": 40,
+        "total_image_kb": 100,
+        "total_font_kb": 80,
+        "total_transfer_kb": 500
+      },
+      "third_party": {
+        "third_party_kb": 50,
+        "third_party_tbt_ms": 50
+      },
+      "notes": [
+        "Static generation everywhere. CSR is a regression.",
+        "Search index lazy-loaded on focus.",
+        "Inline critical CSS for the docs template."
+      ]
+    },
+    "blog": {
+      "description": "Personal/company blog. Single hero, mostly text.",
+      "core_web_vitals": {
+        "lcp_ms": 2500,
+        "inp_ms": 200,
+        "cls": 0.1
+      },
+      "supporting": {
+        "ttfb_ms": 400,
+        "fcp_ms": 1500,
+        "tbt_ms": 150
+      },
+      "payload": {
+        "total_js_kb": 100,
+        "total_css_kb": 30,
+        "total_image_kb": 400,
+        "total_font_kb": 80,
+        "total_transfer_kb": 700
+      },
+      "third_party": {
+        "third_party_kb": 100,
+        "third_party_tbt_ms": 100
+      },
+      "notes": [
+        "Hero image preload with fetchpriority=high.",
+        "Comment widgets behind facades.",
+        "Single font weight preloaded; rest font-display: swap."
+      ]
+    }
+  },
+  "severity": {
+    "rules": [
+      {
+        "rule": "Any Core Web Vital exceeds its budget",
+        "severity": "critical"
+      },
+      {
+        "rule": "TTFB or FCP exceeds budget by >50%",
+        "severity": "critical"
+      },
+      {
+        "rule": "Total JS > budget by >25%",
+        "severity": "critical"
+      },
+      {
+        "rule": "Any payload row over budget by 0–25%",
+        "severity": "high"
+      },
+      {
+        "rule": "Third-party budget breached",
+        "severity": "high"
+      },
+      {
+        "rule": "Within 10% of budget on any metric",
+        "severity": "medium"
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+build/
+dist/
+
+# Tooling
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local skill state
+.perf-cache/
+.perf-reports/
+*.har
+*.lighthouse.json
+*.trace.json
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Node (only if a dev tooling package.json appears)
+node_modules/
