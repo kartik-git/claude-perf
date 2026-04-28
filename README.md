@@ -8,7 +8,7 @@ performance brain — Core Web Vitals diagnosis, bundle analysis, rendering pipe
 audits, CDN strategy, real-user monitoring, and CI budget enforcement — all behind a
 single `/perf` command namespace.
 
-It's the natural companion to [`claude-seo`](https://github.com/your-org/claude-seo). Fast
+It's the natural companion to [`claude-seo`](https://github.com/kartik-git/claude-seo). Fast
 pages rank better; well-ranked pages need to be fast.
 
 ---
@@ -30,20 +30,20 @@ pages rank better; well-ranked pages need to be fast.
 ### macOS / Linux / WSL
 
 ```bash
-git clone --depth 1 https://github.com/your-org/claude-perf.git
+git clone --depth 1 https://github.com/kartik-git/claude-perf.git
 bash claude-perf/install.sh
 ```
 
 One-liner:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/your-org/claude-perf/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kartik-git/claude-perf/main/install.sh | bash
 ```
 
 ### Windows
 
 ```powershell
-git clone --depth 1 https://github.com/your-org/claude-perf.git
+git clone --depth 1 https://github.com/kartik-git/claude-perf.git
 powershell -ExecutionPolicy Bypass -File claude-perf\install.ps1
 ```
 
@@ -230,7 +230,7 @@ Each requires its own API key; see the extension's README for setup.
 
 | Skill | What it adds |
 |---|---|
-| [`claude-seo`](https://github.com/your-org/claude-seo) | SEO audits, schema, GEO. Run `/seo audit` after `/perf audit` for a full content+speed picture. |
+| [`claude-seo`](https://github.com/kartik-git/claude-seo) | SEO audits, schema, GEO. Run `/seo audit` after `/perf audit` for a full content+speed picture. |
 | `claude-blog` | Blog writing pipeline; `claude-perf` enforces image and font budgets at publish time. |
 | `claude-banana` | Generated images run through `perf-images` before commit. |
 

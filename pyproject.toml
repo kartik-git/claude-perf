@@ -47,10 +47,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-org/claude-perf"
-Repository = "https://github.com/your-org/claude-perf"
-Issues = "https://github.com/your-org/claude-perf/issues"
-Changelog = "https://github.com/your-org/claude-perf/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/kartik-git/claude-perf"
+Repository = "https://github.com/kartik-git/claude-perf"
+Issues = "https://github.com/kartik-git/claude-perf/issues"
+Changelog = "https://github.com/kartik-git/claude-perf/blob/main/CHANGELOG.md"
 
 [tool.ruff]
 line-length = 100

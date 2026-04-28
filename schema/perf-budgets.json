@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/your-org/claude-perf/schema/perf-budgets.json",
+  "$id": "https://github.com/kartik-git/claude-perf/schema/perf-budgets.json",
   "title": "claude-perf budget templates",
   "description": "Per-site-type performance budgets used by /perf budget create and /perf budget check.",
   "version": "0.1.0",

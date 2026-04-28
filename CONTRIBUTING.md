@@ -6,7 +6,7 @@ sub-skills, agents, and extensions.
 ## Development setup
 
 ```bash
-git clone https://github.com/<you>/claude-perf.git
+git clone https://github.com/kartik-git/claude-perf.git
 cd claude-perf
 python -m venv .venv && source .venv/bin/activate    # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt

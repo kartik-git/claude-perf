@@ -4,13 +4,13 @@
 
 ### Unix / macOS / Linux / WSL
 ```bash
-git clone --depth 1 https://github.com/your-org/claude-perf.git
+git clone --depth 1 https://github.com/kartik-git/claude-perf.git
 bash claude-perf/install.sh
 ```
 
 ### Windows
 ```powershell
-git clone --depth 1 https://github.com/your-org/claude-perf.git
+git clone --depth 1 https://github.com/kartik-git/claude-perf.git
 powershell -ExecutionPolicy Bypass -File claude-perf\install.ps1
 ```
 

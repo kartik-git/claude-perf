@@ -12,7 +12,7 @@ and real-user monitoring — covering every layer of the modern performance stac
 ## Name
 
 **`claude-perf`**
-Repo: `github.com/<you>/claude-perf`
+Repo: `github.com/kartik-git/claude-perf`
 Command namespace: `/perf`
 
 Rationale: short, unambiguous, mirrors `claude-seo` naming convention, and maps directly
@@ -488,18 +488,18 @@ only the relevant sub-skill directly — no subagent fan-out needed.
 
 ### Unix / macOS / Linux
 ```bash
-git clone --depth 1 https://github.com/<you>/claude-perf.git
+git clone --depth 1 https://github.com/kartik-git/claude-perf.git
 bash claude-perf/install.sh
 ```
 
 One-liner:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<you>/claude-perf/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kartik-git/claude-perf/main/install.sh | bash
 ```
 
 ### Windows (PowerShell)
 ```powershell
-git clone --depth 1 https://github.com/<you>/claude-perf.git
+git clone --depth 1 https://github.com/kartik-git/claude-perf.git
 powershell -ExecutionPolicy Bypass -File claude-perf\install.ps1
 ```
 
